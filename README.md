@@ -26,7 +26,7 @@ Quiz Poker is a Flutter application designed to test your knowledge in various c
 1.  Clone the repository:
 
     ```sh
-    git clone <repository_url>
+    git clone https://github.com/DivyaNatchi/quiz_poker_app.git
     ```
 
 2.  Navigate to the project directory:
