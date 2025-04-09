@@ -1,6 +1,6 @@
 // lib/widgets/base_layout.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_basics/models/app_navigation.dart';
+import 'package:flutter_basics/data/models/app_navigation.dart';
 
 class BaseLayout extends StatelessWidget {
   final Widget child;

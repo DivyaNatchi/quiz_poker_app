@@ -1,5 +1,5 @@
 // lib/data/questions.dart
-import 'package:flutter_basics/models/question.dart';
+import 'package:flutter_basics/data/models/question.dart';
 
 List<Question> myQuestions = [
   Question(

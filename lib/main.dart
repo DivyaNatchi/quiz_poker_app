@@ -1,18 +1,22 @@
 //lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_basics/models/question.dart';
-import 'package:flutter_basics/screens/add_question_screen.dart';
-import 'package:flutter_basics/screens/home_screen.dart';
-import 'package:flutter_basics/theme.dart';
-import 'package:flutter_basics/utils/text_theme_util.dart';
-import 'package:flutter_basics/screens/question_detail_screen.dart';
+import 'package:flutter_basics/data/models/question.dart';
+import 'package:flutter_basics/data/repositories/questions_repository.dart';
+import 'package:flutter_basics/presentation/screens/add_question/add_question_screen.dart';
+import 'package:flutter_basics/presentation/screens/home/home_screen.dart';
+import 'package:flutter_basics/core/theme/theme.dart';
+import 'package:flutter_basics/core/theme/text_theme_util.dart';
+import 'package:flutter_basics/presentation/screens/home/question_detail_screen.dart';
 
 void main() {
-  runApp(const QuizPokerApp());
+  final questionsRepository = QuestionsRepository();
+  runApp(QuizPokerApp(questionsRepository: questionsRepository));
 }
 
 class QuizPokerApp extends StatelessWidget {
-  const QuizPokerApp({super.key});
+  final QuestionsRepository questionsRepository;
+
+  const QuizPokerApp({super.key, required this.questionsRepository});
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +29,9 @@ class QuizPokerApp extends StatelessWidget {
       theme: materialTheme.light(),
       initialRoute: '/',
       routes: {
-        '/': (context) => const QuizPokerHome(),
-        '/add_question': (context) => const AddQuestionScreen(),
+        '/': (context) => QuizPokerHome(repository: questionsRepository),
+        '/add_question':
+            (context) => AddQuestionScreen(repository: questionsRepository),
       },
       onGenerateRoute: (settings) {
         if (settings.name == QuestionDetailScreen.routeName) {
