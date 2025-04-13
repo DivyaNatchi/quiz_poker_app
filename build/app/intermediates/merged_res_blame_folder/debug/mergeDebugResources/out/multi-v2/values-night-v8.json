@@ -4,7 +4,7 @@
             "outputFile": "com.example.flutter_basics.app-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "D:\\Flutter\\ZeroToMastery\\02_flutter\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "D:\\Flutter\\ZeroToMastery\\quiz_poker\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

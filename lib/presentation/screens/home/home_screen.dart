@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basics/data/questions.dart';
 import 'package:flutter_basics/data/models/question.dart';
 import 'package:flutter_basics/data/repositories/questions_repository.dart';
 import 'package:flutter_basics/presentation/screens/home/widgets/question_item.dart';

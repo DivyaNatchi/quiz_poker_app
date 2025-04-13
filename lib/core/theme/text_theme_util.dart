@@ -1,28 +1,33 @@
-// lib/utils/text_theme_util.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 TextTheme createTextTheme(
-  BuildContext context,
   String bodyFontString,
-  String displayFontString,
-) {
-  TextTheme baseTextTheme = Theme.of(context).textTheme;
-  TextTheme bodyTextTheme = GoogleFonts.getTextTheme(
-    bodyFontString,
-    baseTextTheme,
+  String displayFontString, {
+  Brightness brightness = Brightness.light,
+}) {
+  final base =
+      (brightness == Brightness.dark
+          ? ThemeData.dark().textTheme
+          : ThemeData.light().textTheme);
+  final bodyFont = GoogleFonts.getTextTheme(bodyFontString, base);
+  final displayFont = GoogleFonts.getTextTheme(displayFontString, base);
+
+  return base.copyWith(
+    displayLarge: displayFont.displayLarge,
+    displayMedium: displayFont.displayMedium,
+    displaySmall: displayFont.displaySmall,
+    headlineLarge: displayFont.headlineLarge,
+    headlineMedium: displayFont.headlineMedium,
+    headlineSmall: displayFont.headlineSmall,
+    titleLarge: displayFont.titleLarge,
+    titleMedium: displayFont.titleMedium,
+    titleSmall: displayFont.titleSmall,
+    bodyLarge: bodyFont.bodyLarge,
+    bodyMedium: bodyFont.bodyMedium,
+    bodySmall: bodyFont.bodySmall,
+    labelLarge: bodyFont.labelLarge,
+    labelMedium: bodyFont.labelMedium,
+    labelSmall: bodyFont.labelSmall,
   );
-  TextTheme displayTextTheme = GoogleFonts.getTextTheme(
-    displayFontString,
-    baseTextTheme,
-  );
-  TextTheme textTheme = displayTextTheme.copyWith(
-    bodyLarge: bodyTextTheme.bodyLarge,
-    bodyMedium: bodyTextTheme.bodyMedium,
-    bodySmall: bodyTextTheme.bodySmall,
-    labelLarge: bodyTextTheme.labelLarge,
-    labelMedium: bodyTextTheme.labelMedium,
-    labelSmall: bodyTextTheme.labelSmall,
-  );
-  return textTheme;
 }

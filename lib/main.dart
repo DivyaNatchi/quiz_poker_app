@@ -5,7 +5,6 @@ import 'package:flutter_basics/data/repositories/questions_repository.dart';
 import 'package:flutter_basics/presentation/screens/add_question/add_question_screen.dart';
 import 'package:flutter_basics/presentation/screens/home/home_screen.dart';
 import 'package:flutter_basics/core/theme/theme.dart';
-import 'package:flutter_basics/core/theme/text_theme_util.dart';
 import 'package:flutter_basics/presentation/screens/home/question_detail_screen.dart';
 
 void main() {
@@ -20,8 +19,7 @@ class QuizPokerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = createTextTheme(context, 'Agbalumo', 'Roboto');
-    final materialTheme = MaterialTheme(textTheme);
+    final materialTheme = MaterialTheme();
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

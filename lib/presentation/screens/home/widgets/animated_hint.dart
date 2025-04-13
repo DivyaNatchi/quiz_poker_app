@@ -17,6 +17,7 @@ class AnimatedHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
@@ -27,7 +28,10 @@ class AnimatedHint extends StatelessWidget {
           if (!isVisible)
             ElevatedButton(
               onPressed: onShowHint,
-              child: Text('Show Hint $hintNumber'),
+              child: Text(
+                'Show Hint $hintNumber',
+                style: themeData.textTheme.labelLarge,
+              ),
             ),
           AnimatedSize(
             duration: const Duration(milliseconds: 300),
@@ -54,7 +58,7 @@ class AnimatedHint extends StatelessWidget {
                     hintMessage != null
                         ? Text(
                           hintMessage!,
-                          style: TextStyle(
+                          style: themeData.textTheme.bodyMedium?.copyWith(
                             color:
                                 Theme.of(
                                   context,

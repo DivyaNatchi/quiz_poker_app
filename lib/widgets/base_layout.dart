@@ -16,10 +16,15 @@ class BaseLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isDesktop = screenWidth > 600;
+    final themeData = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quiz Poker'),
+        title: Text(
+          'Quiz Poker',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body:
@@ -42,7 +47,10 @@ class BaseLayout extends StatelessWidget {
                             .map(
                               (item) => NavigationRailDestination(
                                 icon: Icon(item.icon),
-                                label: Text(item.label),
+                                label: Text(
+                                  item.label,
+                                  style: themeData.textTheme.bodyMedium,
+                                ),
                               ),
                             )
                             .toList(),

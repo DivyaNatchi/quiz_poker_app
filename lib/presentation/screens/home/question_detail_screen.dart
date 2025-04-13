@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
-import 'package:flutter_basics/core/utils/helpers.dart';
 import 'package:flutter_basics/presentation/screens/home/widgets/hints_section.dart';
+import 'package:flutter_basics/presentation/screens/home/widgets/answer_options.dart'; // Import AnswerOptions
+import 'package:flutter_basics/presentation/screens/home/widgets/question_header.dart'; // Import QuestionHeader
 
 class QuestionDetailScreen extends StatefulWidget {
   static const routeName = '/question_detail';
@@ -61,144 +62,133 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
     });
   }
 
+  void _handleAnswerSelected(String option) {
+    setState(() {
+      _selectedAnswer = option;
+      _remainingAttempts--;
+      if (option == widget.question.correctAnswer) {
+        _resultMessage = 'You won!';
+        _animationController.forward();
+      } else {
+        _showBanner = true;
+        if (_remainingAttempts == 0) {
+          _resultMessage =
+              'Your answer is wrong.\n'
+              'Correct answer: ${widget.question.correctAnswer}\n'
+              'Explanation: ${widget.question.solution}';
+
+          _animationController.forward();
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Question Details'),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      body: Column(
+      body: Stack(
         children: [
-          if (_showBanner)
-            MaterialBanner(
-              content: Text('Wrong answer! Attempts left: $_remainingAttempts'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      _showBanner = false;
-                    });
-                  },
-                  child: const Text('Dismiss'),
-                ),
-              ],
-            ),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          ClipOval(
-                            child: Image.asset(
-                              getCategoryImage(widget.question.category),
-                              height: 40,
-                              width: 40,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            widget.question.category.toUpperCase(),
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+          Column(
+            children: [
+              if (_showBanner)
+                MaterialBanner(
+                  content: Text(
+                    'Wrong answer! Attempts left: $_remainingAttempts',
+                    style: themeData.textTheme.labelMedium,
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          _showBanner = false;
+                        });
+                      },
+                      child: Text(
+                        'Dismiss',
+                        style: themeData.textTheme.labelMedium,
                       ),
+                    ),
+                  ],
+                ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      QuestionHeader(
+                        question: widget.question,
+                        remainingAttempts: _remainingAttempts,
+                      ),
+                      const SizedBox(height: 16),
                       Text(
-                        'Attempts Left: $_remainingAttempts',
-                        style: const TextStyle(
-                          fontSize: 16,
+                        widget.question.questionText,
+                        style: themeData.textTheme.headlineSmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    widget.question.questionText,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'Answer Options:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    spacing: 8,
-                    children:
-                        widget.question.answerOptions.map((option) {
-                          return ElevatedButton(
-                            onPressed:
-                                _remainingAttempts > 0 && _resultMessage == null
-                                    ? () {
-                                      setState(() {
-                                        _selectedAnswer = option;
-                                        _remainingAttempts--;
-                                        if (option ==
-                                            widget.question.correctAnswer) {
-                                          _resultMessage = 'You won!';
-                                          _animationController.forward();
-                                        } else {
-                                          _showBanner = true;
-                                          if (_remainingAttempts == 0) {
-                                            _resultMessage =
-                                                'Your answer is wrong.\n'
-                                                'Correct answer: ${widget.question.correctAnswer}\n'
-                                                'Explanation: ${widget.question.solution}';
-                                          }
-                                        }
-                                      });
-                                    }
-                                    : null,
-                            child: Text(option),
-                          );
-                        }).toList(),
-                  ),
-                  const SizedBox(height: 16),
-                  HintsSection(
-                    isHint1Visible: _isHint1Visible,
-                    isHint2Visible: _isHint2Visible,
-                    hint1Message: _hint1Message,
-                    hint2Message: _hint2Message,
-                    onShowHint1: _showHint1,
-                    onShowHint2: _showHint2,
-                  ),
-                  const SizedBox(height: 16),
-                  if (_resultMessage != null)
-                    SlideTransition(
-                      position: _slideAnimation,
-                      child: Center(
-                        child: Text(
-                          _resultMessage!,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color:
-                                _resultMessage == 'You won!'
-                                    ? Theme.of(context).colorScheme.primary
-                                    : Colors.red,
-                          ),
-                          textAlign: TextAlign.center,
+                      const SizedBox(height: 8),
+                      Text(
+                        'Answer Options:',
+                        style: themeData.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                ],
+                      const SizedBox(height: 8),
+                      AnswerOptions(
+                        question: widget.question,
+                        selectedAnswer: _selectedAnswer,
+                        remainingAttempts: _remainingAttempts,
+                        resultMessage: _resultMessage,
+                        onAnswerSelected: _handleAnswerSelected,
+                      ),
+                      const SizedBox(height: 16),
+                      HintsSection(
+                        isHint1Visible: _isHint1Visible,
+                        isHint2Visible: _isHint2Visible,
+                        hint1Message: _hint1Message,
+                        hint2Message: _hint2Message,
+                        onShowHint1: _showHint1,
+                        onShowHint2: _showHint2,
+                      ),
+                      const SizedBox(height: 16),
+                      if (_resultMessage != null)
+                        SlideTransition(
+                          position: _slideAnimation,
+                          child: Center(
+                            child: Text(
+                              _resultMessage!,
+                              style: themeData.textTheme.headlineMedium
+                                  ?.copyWith(
+                                    color:
+                                        _resultMessage == 'You won!'
+                                            ? Theme.of(
+                                              context,
+                                            ).colorScheme.primary
+                                            : Colors.red,
+                                  ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
+          if (_resultMessage != null)
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: const Color.fromARGB(150, 0, 0, 0),
+            ),
         ],
       ),
     );

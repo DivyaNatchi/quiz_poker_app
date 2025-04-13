@@ -8,6 +8,8 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return Column(
       children: [
         const SizedBox(height: 20),
@@ -15,8 +17,8 @@ class SectionTitle extends StatelessWidget {
           shaderCallback: (Rect bounds) {
             return LinearGradient(
               colors: [
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.secondary,
+                themeData.colorScheme.primary,
+                themeData.colorScheme.secondary,
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -24,11 +26,8 @@ class SectionTitle extends StatelessWidget {
           },
           child: Text(
             title,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+            style: themeData.textTheme.headlineSmall?.copyWith(
               color: Colors.white,
-              letterSpacing: 2.0,
             ),
             textAlign: TextAlign.center,
           ),

@@ -1,12 +1,12 @@
-// lib/screens/add_question_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
 import 'package:flutter_basics/core/constants/category_options.dart';
 import 'package:flutter_basics/data/repositories/questions_repository.dart';
 import 'package:flutter_basics/widgets/base_layout.dart';
 import 'package:flutter_basics/data/questions.dart';
-import 'package:flutter_basics/presentation/components/inputs/custom_text_from_field.dart';
 import 'package:flutter_basics/presentation/components/display/section_title.dart';
+import 'package:flutter_basics/presentation/screens/add_question/widgets/text_form_fields.dart'; // Import the new widget
+import 'package:flutter_basics/presentation/screens/add_question/widgets/difficulty_selection.dart'; // Import the new widget
 
 class AddQuestionScreen extends StatefulWidget {
   final QuestionsRepository repository;
@@ -21,52 +21,52 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
   final _formKey = GlobalKey<FormState>();
   String? _selectedCategory;
   final List<String> _categoryOptions = categoryOptions;
-  final _questionTextController = TextEditingController();
-  final _answerOptionsController = TextEditingController();
-  final _correctAnswerController = TextEditingController();
   String? _selectedDifficulty;
   final List<String> _difficultyOptions = ['Easy', 'Medium', 'Hard'];
-  final _hint1Controller = TextEditingController();
-  final _hint2Controller = TextEditingController();
-  final _solutionController = TextEditingController();
+
+  // Store controllers in a map
+  final Map<String, TextEditingController> _controllers = {
+    'questionText': TextEditingController(),
+    'answerOptions': TextEditingController(),
+    'correctAnswer': TextEditingController(),
+    'hint1': TextEditingController(),
+    'hint2': TextEditingController(),
+    'solution': TextEditingController(),
+  };
 
   @override
   void dispose() {
-    _questionTextController.dispose();
-    _answerOptionsController.dispose();
-    _correctAnswerController.dispose();
-    _hint1Controller.dispose();
-    _hint2Controller.dispose();
-    _solutionController.dispose();
+    _controllers.forEach((key, controller) => controller.dispose());
     super.dispose();
+  }
+
+  // Custom validator function
+  String? _validateField(String? value, String message) {
+    if (value == null || value.isEmpty) {
+      return message;
+    }
+    return null;
   }
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // Create a new Question object
       final newQuestion = Question(
         id: (myQuestions.length + 1).toString(),
         category: _selectedCategory!,
-        questionText: _questionTextController.text,
-        answerOptions: _answerOptionsController.text.split(','),
-        correctAnswer: _correctAnswerController.text,
+        questionText: _controllers['questionText']!.text,
+        answerOptions: _controllers['answerOptions']!.text.split(','),
+        correctAnswer: _controllers['correctAnswer']!.text,
         difficulty: _selectedDifficulty!,
-        hint1: _hint1Controller.text,
-        hint2: _hint2Controller.text,
-        solution: _solutionController.text,
+        hint1: _controllers['hint1']!.text,
+        hint2: _controllers['hint2']!.text,
+        solution: _controllers['solution']!.text,
       );
 
       widget.repository.addQuestion(newQuestion);
 
-      // Clear the form
-      _questionTextController.clear();
-      _answerOptionsController.clear();
-      _correctAnswerController.clear();
-      _hint1Controller.clear();
-      _hint2Controller.clear();
-      _solutionController.clear();
+      // Clear the form using the map
+      _controllers.forEach((key, controller) => controller.clear());
 
-      // Show a success message
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text('Question added!')));
@@ -77,6 +77,8 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return BaseLayout(
       currentRoute: '/add_question',
       child: Scaffold(
@@ -98,7 +100,7 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                       floatingLabelStyle: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
                       ),
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                     ),
                     value: _selectedCategory,
                     items:
@@ -107,7 +109,7 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                             value: value,
                             child: Text(
                               value,
-                              style: Theme.of(context).textTheme.bodyMedium,
+                              style: themeData.textTheme.bodyMedium,
                             ),
                           );
                         }).toList(),
@@ -116,135 +118,34 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                         _selectedCategory = newValue;
                       });
                     },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please select a category';
-                      }
-                      return null;
-                    },
+                    validator:
+                        (value) =>
+                            _validateField(value, 'Please select a category'),
                   ),
                   const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: _questionTextController,
-                    labelText: 'Question Text',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter the question text';
-                      }
-                      return null;
-                    },
-                    maxLines: 2,
+                  TextFormFields(
+                    controllers: _controllers,
+                    validateField: _validateField,
                   ),
-                  const SizedBox(height: 16),
-                  LayoutBuilder(
-                    builder: (
-                      BuildContext context,
-                      BoxConstraints constraints,
-                    ) {
-                      final isMobile = constraints.maxWidth < 600;
-                      return CustomTextFormField(
-                        controller: _answerOptionsController,
-                        labelText:
-                            isMobile
-                                ? 'Answer Options(comma-separated,\nmust be 4 options)'
-                                : 'Answer Options (comma-separated, must be 4 options)',
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter answer options';
-                          }
-                          return null;
-                        },
-                      );
+                  DifficultySelection(
+                    selectedDifficulty: _selectedDifficulty,
+                    difficultyOptions: _difficultyOptions,
+                    onChanged: (newValue) {
+                      setState(() {
+                        _selectedDifficulty = newValue;
+                      });
                     },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: _correctAnswerController,
-                    labelText: 'Correct Answer',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter the correct answer';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Difficulty',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children:
-                              _difficultyOptions.map((String value) {
-                                return RadioListTile<String>(
-                                  title: Text(value),
-                                  value: value,
-                                  groupValue: _selectedDifficulty,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      _selectedDifficulty = newValue!;
-                                    });
-                                  },
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: _hint1Controller,
-                    labelText: 'Hint 1',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter the Hint 1';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: _hint2Controller,
-                    labelText: 'Hint 2',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter the Hint 2';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomTextFormField(
-                    controller: _solutionController,
-                    labelText: 'Solution',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter the Solution';
-                      }
-                      return null;
-                    },
-                    maxLines: 3,
+                    themeData: themeData,
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _submitForm,
-                    child: const Text('Add Question'),
+                    child: Text(
+                      'Add Question',
+                      style: themeData.textTheme.labelLarge?.copyWith(
+                        color: themeData.colorScheme.primary,
+                      ),
+                    ),
                   ),
                 ],
               ),

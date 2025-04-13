@@ -22,12 +22,15 @@ class HintsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Hints:',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: themeData.textTheme.labelLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
         ),
         AnimatedHint(
           isVisible: isHint1Visible,

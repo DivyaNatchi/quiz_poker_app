@@ -11,6 +11,8 @@ class QuestionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return SizedBox(
       height: 200,
       child: InkWell(
@@ -59,11 +61,11 @@ class QuestionItem extends StatelessWidget {
                     Flexible(
                       child: RichText(
                         text: TextSpan(
-                          style: TextStyle(
-                            fontSize: 18,
+                          style: themeData.textTheme.bodyMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).colorScheme.onPrimary,
                           ),
+
                           children: [
                             TextSpan(text: question.category.toUpperCase()),
                             WidgetSpan(
@@ -72,12 +74,14 @@ class QuestionItem extends StatelessWidget {
                                 transformHitTests: false,
                                 child: Text(
                                   question.difficulty,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                    color:
-                                        Theme.of(context).colorScheme.onPrimary,
-                                  ),
+                                  style: themeData.textTheme.bodyMedium
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.normal,
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).colorScheme.onPrimary,
+                                      ),
                                 ),
                               ),
                             ),
@@ -90,10 +94,10 @@ class QuestionItem extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   question.questionText,
-                  style: TextStyle(
-                    fontSize: 18,
+                  style: themeData.textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
+
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
