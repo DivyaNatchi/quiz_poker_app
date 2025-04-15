@@ -1,0 +1,183 @@
+{
+  "@@locale": "en",
+  "appName": "Quiz Poker",
+  "welcomeMessage": "Welcome to Quiz Poker!",
+  "questionDetails": "Question Details",
+  "attemptsLeft": "Attempts Left: {attempts}",
+  "@attemptsLeft": {
+    "placeholders": {
+      "attempts": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerOptions": "Answer Options:",
+  "showHint": "Show Hint {hintNumber}",
+  "@showHint": {
+    "placeholders": {
+      "hintNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "youWon": "You won!",
+  "yourAnswerIsWrong": "Your answer is wrong.",
+  "correctAnswer": "Correct answer: {correctAnswer}",
+  "@correctAnswer": {
+    "placeholders": {
+      "correctAnswer": {
+        "type": "Object"
+      }
+    }
+  },
+  "explanation": "Explanation: {solution}",
+  "@explanation": {
+    "placeholders": {
+      "solution": {
+        "type": "Object"
+      }
+    }
+  },
+  "dismiss": "Dismiss",
+  "wrongAnswer": "Wrong answer! Attempts left: {attempts}",
+  "@wrongAnswer": {
+    "placeholders": {
+      "attempts": {
+        "type": "Object"
+      }
+    }
+  },
+  "correctAnswerIs": "Correct answer is: {correctAnswer}",
+  "@correctAnswerIs": {
+    "placeholders": {
+      "correctAnswer": {
+        "type": "Object"
+      }
+    }
+  },
+  "difficulty": "Difficulty",
+  "@difficulty": {
+    "description": "Label for difficulty selection"
+  },
+  "home": "Home",
+  "addQuestion": "Add Question",
+  "category_sports": "Sports",
+  "category_music": "Music",
+  "category_history": "History",
+  "category_movies": "Movies",
+  "category_geography": "Geography",
+  "hints": "Hints:",
+  "hint1": "Hint 1",
+  "hint2": "Hint 2",
+  "answerOptionsLabel": "Answer Options(comma-separted, must be 4 options & unique)",
+  "correctAnswerLabel": "Correct Answer",
+  "solution": "Solution",
+  "category": "Category",
+  "selectCategory": "Please select a category",
+  "enterQuestionText": "Please enter the question text",
+  "enterSolution": "Please enter the solution",
+  "enterAnswerOption": "Please enter the answer options",
+  "enterCorrectAnswer": "Please enter the correct answer",
+  "enterHint1": "Please enter hint1",
+  "enterHint2": "Please enter hint2",
+  "enter": "Plese enter",
+  "question1_text": "Who won the FIFA World Cup in 2018?",
+  "question1_option1": "France",
+  "question1_option2": "Croatia",
+  "question1_option3": "Germany",
+  "question1_option4": "Argentina",
+  "question1_difficulty": "Easy",
+  "question1_hint1": "Les Bleus",
+  "question1_hint2": "Their opponent was a smaller country",
+  "question1_solution": "France won the FIFA World Cup in 2018.",
+  "question2_text": "Which country has the most Olympic gold medals in history?",
+  "question2_option1": "USA",
+  "question2_option2": "China",
+  "question2_option3": "Russia",
+  "question2_option4": "UK",
+  "question2_difficulty": "Medium",
+  "question2_hint1": "Think about the land of stars and stripes.",
+  "question2_hint2": "Hollywood",
+  "question2_solution": "The USA has the most Olympic gold medals in history.",
+  "question3_text": "Which artist is known as the \"King of Pop\"?",
+  "question3_option1": "Elvis Presley",
+  "question3_option2": "Michael Jackson",
+  "question3_option3": "Prince",
+  "question3_option4": "Freddie Mercury",
+  "question3_difficulty": "Easy",
+  "question3_hint1": "Think about the moonwalk.",
+  "question3_hint2": "Thriller",
+  "question3_solution": "Michael Jackson is known as the \"King of Pop\".",
+  "question4_text": "Who was the first president of the United States?",
+  "question4_option1": "Abraham Lincoln",
+  "question4_option2": "George Washington",
+  "question4_option3": "Thomas Jefferson",
+  "question4_option4": "John Adams",
+  "question4_difficulty": "Easy",
+  "question4_hint1": "He led the Continental Army.",
+  "question4_hint2": "He has a state named after him.",
+  "question4_solution": "George Washington was the first president of the United States.",
+  "question5_text": "Which movie won the Oscar for Best Picture in 1994?",
+  "question5_option1": "Forrest Gump",
+  "question5_option2": "The Shawshank Redemption",
+  "question5_option3": "Pulp Fiction",
+  "question5_option4": "Lion King",
+  "question5_difficulty": "Medium",
+  "question5_hint1": "Life is like a box of chocolates.",
+  "question5_hint2": "Run Forrest, Run!",
+  "question5_solution": "Forrest Gump won the Oscar for Best Picture in 1994.",
+  "question6_text": "Which is the largest desert in the world?",
+  "question6_option1": "Sahara",
+  "question6_option2": "Arctic",
+  "question6_option3": "Antarctic",
+  "question6_option4": "Gobi",
+  "question6_difficulty": "Hard",
+  "question6_hint1": "It's a very cold desert.",
+  "question6_hint2": "Penguins live there.",
+  "question6_solution": "Antarctic is the largest desert in the world.",
+  "question7_text": "In tennis, what is the term for a score of zero?",
+  "question7_option1": "Love",
+  "question7_option2": "Deuce",
+  "question7_option3": "Ace",
+  "question7_option4": "Fault",
+  "question7_difficulty": "Easy",
+  "question7_hint1": "It's a word that means affection.",
+  "question7_hint2": "0-0",
+  "question7_solution": "In tennis, the term for a score of zero is Love.",
+  "question8_text": "Which classical composer became deaf later in life?",
+  "question8_option1": "Mozart",
+  "question8_option2": "Bach",
+  "question8_option3": "Beethoven",
+  "question8_option4": "Vivaldi",
+  "question8_difficulty": "Medium",
+  "question8_hint1": "He composed the 5th Symphony.",
+  "question8_hint2": "He was German.",
+  "question8_solution": "Beethoven became deaf later in life.",
+  "question9_text": "In which year did World War II end?",
+  "question9_option1": "1942",
+  "question9_option2": "1945",
+  "question9_option3": "1948",
+  "question9_option4": "1950",
+  "question9_difficulty": "Medium",
+  "question9_hint1": "After the atomic bomb",
+  "question9_hint2": "The last year of Roosevelt",
+  "question9_solution": "World War II ended in 1945.",
+  "question10_text": "Who played Jack Dawson in the movie \"Titanic\"?",
+  "question10_option1": "Brad Pitt",
+  "question10_option2": "Leonardo DiCaprio",
+  "question10_option3": "Johnny Depp",
+  "question10_option4": "Matt Damon",
+  "question10_difficulty": "Easy",
+  "question10_hint1": "He also starred in \"The Wolf of Wall Street.\"",
+  "question10_hint2": "He won an Oscar for \"The Revenant.\"",
+  "question10_solution": "Leonardo DiCaprio played Jack Dawson in the movie \"Titanic\".",
+  "question11_text": "What is the capital city of Australia?",
+  "question11_option1": "Sydney",
+  "question11_option2": "Melbourne",
+  "question11_option3": "Canberra",
+  "question11_option4": "Brisbane",
+  "question11_difficulty": "Easy",
+  "question11_hint1": "It is not the largest city",
+  "question11_hint2": "It was purpose-built as the capital",
+  "question11_solution": "Canberra is the capital city of Australia."
+}

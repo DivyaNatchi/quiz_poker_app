@@ -1,6 +1,7 @@
 // lib/widgets/base_layout.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/app_navigation.dart';
+import 'package:flutter_basics/extensions/buildcontext/loc.dart';
 
 class BaseLayout extends StatelessWidget {
   final Widget child;
@@ -20,9 +21,13 @@ class BaseLayout extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Quiz Poker',
-          style: Theme.of(context).textTheme.titleLarge,
+        title: Builder(
+          builder: (context) {
+            return Text(
+              context.loc.appName,
+              style: Theme.of(context).textTheme.titleLarge,
+            );
+          },
         ),
 
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -32,18 +37,18 @@ class BaseLayout extends StatelessWidget {
               ? Row(
                 children: [
                   NavigationRail(
-                    selectedIndex: AppNavigation.items.indexWhere(
-                      (item) => item.routeName == currentRoute,
-                    ),
+                    selectedIndex: AppNavigation.items(
+                      context,
+                    ).indexWhere((item) => item.routeName == currentRoute),
                     onDestinationSelected: (index) {
                       Navigator.pushReplacementNamed(
                         context,
-                        AppNavigation.items[index].routeName,
+                        AppNavigation.items(context)[index].routeName,
                       );
                     },
                     labelType: NavigationRailLabelType.all,
                     destinations:
-                        AppNavigation.items
+                        AppNavigation.items(context)
                             .map(
                               (item) => NavigationRailDestination(
                                 icon: Icon(item.icon),
@@ -63,17 +68,17 @@ class BaseLayout extends StatelessWidget {
           isDesktop
               ? null
               : BottomNavigationBar(
-                currentIndex: AppNavigation.items.indexWhere(
-                  (item) => item.routeName == currentRoute,
-                ),
+                currentIndex: AppNavigation.items(
+                  context,
+                ).indexWhere((item) => item.routeName == currentRoute),
                 onTap: (index) {
                   Navigator.pushReplacementNamed(
                     context,
-                    AppNavigation.items[index].routeName,
+                    AppNavigation.items(context)[index].routeName,
                   );
                 },
                 items:
-                    AppNavigation.items
+                    AppNavigation.items(context)
                         .map(
                           (item) => BottomNavigationBarItem(
                             icon: Icon(item.icon),

@@ -1,0 +1,183 @@
+{
+  "@@locale": "de",
+  "appName": "Quiz Poker",
+  "welcomeMessage": "Willkommen bei Quiz Poker!",
+  "questionDetails": "Fragedetails",
+  "attemptsLeft": "Verbleibende Versuche: {attempts}",
+  "@attemptsLeft": {
+    "placeholders": {
+      "attempts": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerOptions": "Antwortoptionen",
+  "showHint": "Hinweis anzeigen {hintNumber}",
+  "@showHint": {
+    "placeholders": {
+      "hintNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "youWon": "Du hast gewonnen!",
+  "yourAnswerIsWrong": "Deine Antwort ist falsch.",
+  "correctAnswer": "Richtige Antwort: {correctAnswer}",
+  "@correctAnswer": {
+    "placeholders": {
+      "correctAnswer": {
+        "type": "Object"
+      }
+    }
+  },
+  "explanation": "Erklärung: {solution}",
+  "@explanation": {
+    "placeholders": {
+      "solution": {
+        "type": "Object"
+      }
+    }
+  },
+  "dismiss": "Schließen",
+  "wrongAnswer": "Falsche Antwort! Verbleibende Versuche: {attempts}",
+  "@wrongAnswer": {
+    "placeholders": {
+      "attempts": {
+        "type": "Object"
+      }
+    }
+  },
+  "correctAnswerIs": "Die richtige Antwort ist: {correctAnswer}",
+  "@correctAnswerIs": {
+    "placeholders": {
+      "correctAnswer": {
+        "type": "Object"
+      }
+    }
+  },
+  "difficulty": "Schwierigkeitsgrad",
+  "@difficulty": {
+    "description": "Label for difficulty selection"
+  },
+  "home": "Startseite",
+  "addQuestion": "Frage hinzufügen",
+  "category_sports": "Sport",
+  "category_music": "Musik",
+  "category_history": "Geschichte",
+  "category_movies": "Filme",
+  "category_geography": "Geografie",
+  "hints": "Hinweise:",
+  "hint1": "Hinweis 1",
+  "hint2": "Hinweis 2",
+  "answerOptionsLabel": "Antwortoptionen (durch Kommas getrennt, müssen 4 und eindeutig sein)",
+  "correctAnswerLabel": "Richtige Antwort",
+  "solution": "Lösung",
+  "category": "Kategorie",
+  "selectCategory": "Bitte wählen Sie eine Kategorie aus",
+  "enterQuestionText": "Bitte geben Sie den Fragetext ein",
+  "enterSolution": "Bitte geben Sie die Lösung ein",
+  "enterAnswerOption": "Bitte geben Sie die Antwortoptionen ein",
+  "enterCorrectAnswer": "Bitte geben Sie die richtige Antwort ein",
+  "enterHint1": "Bitte geben Sie Hinweis 1 ein",
+  "enterHint2": "Bitte geben Sie Hinweis 2 ein",
+  "enter": "Bitte geben Sie das ein",
+  "question1_text": "Wer hat die FIFA Fussball-Weltmeisterschaft 2018 gewonnen?",
+  "question1_option1": "Frankreich",
+  "question1_option2": "Kroatien",
+  "question1_option3": "Deutschland",
+  "question1_option4": "Argentinien",
+  "question1_difficulty": "Leicht",
+  "question1_hint1": "Les Bleus",
+  "question1_hint2": "Ihr Gegner war ein kleineres Land",
+  "question1_solution": "Frankreich hat die FIFA Fussball-Weltmeisterschaft 2018 gewonnen.",
+  "question2_text": "Welches Land hat die meisten olympischen Goldmedaillen in der Geschichte?",
+  "question2_option1": "USA",
+  "question2_option2": "China",
+  "question2_option3": "Russland",
+  "question2_option4": "UK",
+  "question2_difficulty": "Mittel",
+  "question2_hint1": "Denken Sie an das Land der Sterne und Streifen.",
+  "question2_hint2": "Hollywood",
+  "question2_solution": "Die USA hat die meisten olympischen Goldmedaillen in der Geschichte.",
+  "question3_text": "Welcher Künstler ist bekannt als der \"King of Pop\"?",
+  "question3_option1": "Elvis Presley",
+  "question3_option2": "Michael Jackson",
+  "question3_option3": "Prince",
+  "question3_option4": "Freddie Mercury",
+  "question3_difficulty": "Leicht",
+  "question3_hint1": "Denken Sie an den Moonwalk.",
+  "question3_hint2": "Thriller",
+  "question3_solution": "Michael Jackson ist bekannt als der \"King of Pop\".",
+  "question4_text": "Wer war der erste Präsident der Vereinigten Staaten?",
+  "question4_option1": "Abraham Lincoln",
+  "question4_option2": "George Washington",
+  "question4_option3": "Thomas Jefferson",
+  "question4_option4": "John Adams",
+  "question4_difficulty": "Leicht",
+  "question4_hint1": "Er führte die Kontinentalarmee.",
+  "question4_hint2": "Nach ihm ist ein Bundesstaat benannt.",
+  "question4_solution": "George Washington war der erste Präsident der Vereinigten Staaten.",
+  "question5_text": "Welcher Film gewann 1994 den Oscar als bester Film?",
+  "question5_option1": "Forrest Gump",
+  "question5_option2": "Die Verurteilten",
+  "question5_option3": "Pulp Fiction",
+  "question5_option4": "König der Löwen",
+  "question5_difficulty": "Mittel",
+  "question5_hint1": "Das Leben ist wie eine Schachtel Pralinen.",
+  "question5_hint2": "Lauf Forrest, lauf!",
+  "question5_solution": "Forrest Gump gewann 1994 den Oscar als bester Film.",
+  "question6_text": "Welche ist die größte Wüste der Welt?",
+  "question6_option1": "Sahara",
+  "question6_option2": "Arktis",
+  "question6_option3": "Antarktis",
+  "question6_option4": "Gobi",
+  "question6_difficulty": "Schwer",
+  "question6_hint1": "Es ist eine sehr kalte Wüste.",
+  "question6_hint2": "Pinguine leben dort.",
+  "question6_solution": "Die Antarktis ist die größte Wüste der Welt.",
+  "question7_text": "Wie bezeichnet man im Tennis einen Spielstand von Null?",
+  "question7_option1": "Liebe",
+  "question7_option2": "Einstand",
+  "question7_option3": "Ass",
+  "question7_option4": "Fehler",
+  "question7_difficulty": "Leicht",
+  "question7_hint1": "Es ist ein Wort, das Zuneigung bedeutet.",
+  "question7_hint2": "0-0",
+  "question7_solution": "Im Tennis ist die Bezeichnung für einen Spielstand von Null Liebe.",
+  "question8_text": "Welcher klassische Komponist erblindete später im Leben?",
+  "question8_option1": "Mozart",
+  "question8_option2": "Bach",
+  "question8_option3": "Beethoven",
+  "question8_option4": "Vivaldi",
+  "question8_difficulty": "Mittel",
+  "question8_hint1": "Er komponierte die 5. Sinfonie.",
+  "question8_hint2": "Er war Deutscher.",
+  "question8_solution": "Beethoven erblindete später im Leben.",
+  "question9_text": "In welchem Jahr endete der Zweite Weltkrieg?",
+  "question9_option1": "1942",
+  "question9_option2": "1945",
+  "question9_option3": "1948",
+  "question9_option4": "1950",
+  "question9_difficulty": "Mittel",
+  "question9_hint1": "Nach dem Atombombenabwurf",
+  "question9_hint2": "Das letzte Jahr von Roosevelt",
+  "question9_solution": "Der Zweite Weltkrieg endete im Jahr 1945.",
+  "question10_text": "Wer spielte Jack Dawson im Film \"Titanic\"?",
+  "question10_option1": "Brad Pitt",
+  "question10_option2": "Leonardo DiCaprio",
+  "question10_option3": "Johnny Depp",
+  "question10_option4": "Matt Damon",
+  "question10_difficulty": "Leicht",
+  "question10_hint1": "Er spielte auch in \"The Wolf of Wall Street\" mit.",
+  "question10_hint2": "Er gewann einen Oscar für \"The Revenant\".",
+  "question10_solution": "Leonardo DiCaprio spielte Jack Dawson im Film \"Titanic\".",
+  "question11_text": "Was ist die Hauptstadt von Australien?",
+  "question11_option1": "Sydney",
+  "question11_option2": "Melbourne",
+  "question11_option3": "Canberra",
+  "question11_option4": "Brisbane",
+  "question11_difficulty": "Leicht",
+  "question11_hint1": "Es ist nicht die größte Stadt",
+  "question11_hint2": "Es wurde eigens als Hauptstadt gebaut",
+  "question11_solution": "Canberra ist die Hauptstadt von Australien."
+}

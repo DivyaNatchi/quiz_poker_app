@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
 import 'package:flutter_basics/core/utils/helpers.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart'; // Import AppLocalizations
 
 class QuestionHeader extends StatelessWidget {
   const QuestionHeader({
@@ -15,6 +16,8 @@ class QuestionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    final l10n =
+        AppLocalizations.of(context)!; // Get the AppLocalizations instance
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +42,7 @@ class QuestionHeader extends StatelessWidget {
           ],
         ),
         Text(
-          'Attempts Left: $remainingAttempts',
+          l10n.attemptsLeft(remainingAttempts), // Localize
           style: themeData.textTheme.titleSmall?.copyWith(
             fontWeight: FontWeight.bold,
           ),

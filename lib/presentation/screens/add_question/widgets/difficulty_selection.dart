@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart'; // Import AppLocalizations
 
 class DifficultySelection extends StatelessWidget {
   const DifficultySelection({
@@ -16,11 +17,12 @@ class DifficultySelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Difficulty',
+          l10n.difficulty,
           style: themeData.textTheme.labelLarge?.copyWith(
             color: Theme.of(context).colorScheme.primary,
           ),

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
 import 'package:flutter_basics/core/constants/category_options.dart';
 import 'package:flutter_basics/data/repositories/questions_repository.dart';
+import 'package:flutter_basics/extensions/buildcontext/loc.dart';
 import 'package:flutter_basics/widgets/base_layout.dart';
 import 'package:flutter_basics/data/questions.dart';
 import 'package:flutter_basics/presentation/components/display/section_title.dart';
 import 'package:flutter_basics/presentation/screens/add_question/widgets/text_form_fields.dart'; // Import the new widget
 import 'package:flutter_basics/presentation/screens/add_question/widgets/difficulty_selection.dart'; // Import the new widget
+import 'package:flutter_basics/l10n/app_localizations.dart'; // Import AppLocalizations
 
 class AddQuestionScreen extends StatefulWidget {
   final QuestionsRepository repository;
@@ -53,13 +55,13 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
       final newQuestion = Question(
         id: (myQuestions.length + 1).toString(),
         category: _selectedCategory!,
-        questionText: _controllers['questionText']!.text,
-        answerOptions: _controllers['answerOptions']!.text.split(','),
-        correctAnswer: _controllers['correctAnswer']!.text,
-        difficulty: _selectedDifficulty!,
-        hint1: _controllers['hint1']!.text,
-        hint2: _controllers['hint2']!.text,
-        solution: _controllers['solution']!.text,
+        questionTextKey: _controllers['questionText']!.text,
+        answerOptionKeys: _controllers['answerOptions']!.text.split(','),
+        correctAnswerKey: _controllers['correctAnswer']!.text,
+        difficultyKey: _selectedDifficulty!,
+        hint1Key: _controllers['hint1']!.text,
+        hint2Key: _controllers['hint2']!.text,
+        solutionKey: _controllers['solution']!.text,
       );
 
       widget.repository.addQuestion(newQuestion);
@@ -78,6 +80,7 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return BaseLayout(
       currentRoute: '/add_question',
@@ -85,7 +88,7 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
         body: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
-            SectionTitle(title: 'Add Question'),
+            SectionTitle(title: l10n.addQuestion),
             const SizedBox(height: 20),
             Form(
               key: _formKey,
@@ -93,7 +96,7 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                 children: [
                   DropdownButtonFormField<String>(
                     decoration: InputDecoration(
-                      labelText: 'Category',
+                      labelText: l10n.category,
                       labelStyle: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
                       ),
@@ -108,7 +111,9 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(
-                              value,
+                              context.getLocalizedCategory(
+                                value,
+                              ), // 👈 Localized display
                               style: themeData.textTheme.bodyMedium,
                             ),
                           );
@@ -119,9 +124,9 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                       });
                     },
                     validator:
-                        (value) =>
-                            _validateField(value, 'Please select a category'),
+                        (value) => _validateField(value, l10n.selectCategory),
                   ),
+
                   const SizedBox(height: 16),
                   TextFormFields(
                     controllers: _controllers,
@@ -141,7 +146,7 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
                   ElevatedButton(
                     onPressed: _submitForm,
                     child: Text(
-                      'Add Question',
+                      l10n.addQuestion,
                       style: themeData.textTheme.labelLarge?.copyWith(
                         color: themeData.colorScheme.primary,
                       ),

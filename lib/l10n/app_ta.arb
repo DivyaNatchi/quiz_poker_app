@@ -1,0 +1,183 @@
+{
+  "@@locale": "ta",
+  "appName": "வினாடி வினா போக்கர்",
+  "welcomeMessage": "வினாடி வினா போக்கருக்கு வரவேற்கிறோம்!",
+  "questionDetails": "கேள்வி விவரங்கள்",
+  "attemptsLeft": "மீதமுள்ள முயற்சிகள்: {attempts}",
+  "@attemptsLeft": {
+    "placeholders": {
+      "attempts": {
+        "type": "Object"
+      }
+    }
+  },
+  "answerOptions": "பதில் விருப்பங்கள்",
+  "showHint": "குறிப்பை காண்பி {hintNumber}",
+  "@showHint": {
+    "placeholders": {
+      "hintNumber": {
+        "type": "Object"
+      }
+    }
+  },
+  "youWon": "நீங்கள் வெற்றி பெற்றீர்கள்!",
+  "yourAnswerIsWrong": "உங்கள் பதில் தவறானது.",
+  "correctAnswer": "சரியான பதில்: {correctAnswer}",
+  "@correctAnswer": {
+    "placeholders": {
+      "correctAnswer": {
+        "type": "Object"
+      }
+    }
+  },
+  "explanation": "விளக்கம்: {solution}",
+  "@explanation": {
+    "placeholders": {
+      "solution": {
+        "type": "Object"
+      }
+    }
+  },
+  "dismiss": "மூடு",
+  "wrongAnswer": "தவறான பதில்! மீதமுள்ள முயற்சிகள்: {attempts}",
+  "@wrongAnswer": {
+    "placeholders": {
+      "attempts": {
+        "type": "Object"
+      }
+    }
+  },
+  "correctAnswerIs": "சரியான பதில்: {correctAnswer}",
+  "@correctAnswerIs": {
+    "placeholders": {
+      "correctAnswer": {
+        "type": "Object"
+      }
+    }
+  },
+  "difficulty": "சிரம நிலை",
+  "@difficulty": {
+    "description": "Label for difficulty selection"
+  },
+  "home": "வீடு",
+  "addQuestion": "கேள்வி சேர்",
+  "category_sports": "விளையாட்டு",
+  "category_music": "இசை",
+  "category_history": "வரலாறு",
+  "category_movies": "திரைப்படங்கள்",
+  "category_geography": "புவியியல்",
+  "hints": "குறிப்புகள்:",
+  "hint1": "குறிப்பு 1",
+  "hint2": "குறிப்பு 2",
+  "answerOptionsLabel": "பதில் விருப்பங்கள் (கமா பிரிக்கப்பட்ட, 4 தனித்துவமான விருப்பங்கள் இருக்க வேண்டும்)",
+  "correctAnswerLabel": "சரியான பதில்",
+  "solution": "தீர்வு",
+  "category": "வகை",
+  "selectCategory": "தயவுசெய்து ஒரு வகையைத் தேர்ந்தெடுக்கவும்",
+  "enterQuestionText": "தயவுசெய்து கேள்வி உரையை உள்ளிடவும்",
+  "enterSolution": "தயவுசெய்து தீர்வை உள்ளிடவும்",
+  "enterAnswerOption": "தயவுசெய்து பதில் விருப்பங்களை உள்ளிடவும்",
+  "enterCorrectAnswer": "தயவுசெய்து சரியான பதிலை உள்ளிடவும்",
+  "enterHint1": "தயவுசெய்து குறிப்பை 1 உள்ளிடவும்",
+  "enterHint2": "தயவுசெய்து குறிப்பை 2 உள்ளிடவும்",
+  "enter": "தயவுசெய்து உள்ளிடவும்",
+  "question1_text": "2018 ஆம் ஆண்டு FIFA உலகக் கோப்பையை வென்றது யார்?",
+  "question1_option1": "பிரான்ஸ்",
+  "question1_option2": "குரோஷியா",
+  "question1_option3": "ஜெர்மனி",
+  "question1_option4": "அர்ஜென்டினா",
+  "question1_difficulty": "எளிதான",
+  "question1_hint1": "லெஸ் ப்ளூஸ்",
+  "question1_hint2": "அவர்களின் எதிரணி ஒரு சிறிய நாடு",
+  "question1_solution": "2018 ஆம் ஆண்டு FIFA உலகக் கோப்பையை பிரான்ஸ் வென்றது.",
+  "question2_text": "வரலாற்றில் எந்த நாடு அதிக ஒலிம்பிக் தங்கப் பதக்கங்களை வென்றுள்ளது?",
+  "question2_option1": "அமெரிக்கா",
+  "question2_option2": "சீனா",
+  "question2_option3": "ரஷ்யா",
+  "question2_option4": "இங்கிலாந்து",
+  "question2_difficulty": "நடுத்தரம்",
+  "question2_hint1": "நட்சத்திரங்கள் மற்றும் கோடுகள் நிலத்தைப் பற்றி சிந்தியுங்கள்.",
+  "question2_hint2": "ஹாலிவுட்",
+  "question2_solution": "வரலாற்றில் அமெரிக்கா அதிக ஒலிம்பிக் தங்கப் பதக்கங்களை வென்றுள்ளது.",
+  "question3_text": "\"பாப் இசையின் ராஜா\" என்று அழைக்கப்படும் கலைஞர் யார்?",
+  "question3_option1": "எல்விஸ் பிரెస్லி",
+  "question3_option2": "மைக்கேல் ஜாக்சன்",
+  "question3_option3": "இளவரசன்",
+  "question3_option4": "பிரெடி மெர்குரி",
+  "question3_difficulty": "எளிதான",
+  "question3_hint1": "மூன்வாக்கைப் பற்றி சிந்தியுங்கள்.",
+  "question3_hint2": "திரில்லர்",
+  "question3_solution": "மைக்கேல் ஜாக்சன் \"பாப் இசையின் ராஜா\" என்று அழைக்கப்படுகிறார்.",
+  "question4_text": "அமெரிக்காவின் முதல் ஜனாதிபதி யார்?",
+  "question4_option1": "ஆபிரகாம் லிங்கன்",
+  "question4_option2": "ஜார்ஜ் வாஷிங்டன்",
+  "question4_option3": "தாமஸ் ஜெபர்சன்",
+  "question4_option4": "ஜான் ஆடம்ஸ்",
+  "question4_difficulty": "எளிதான",
+  "question4_hint1": "அவர் கான்டினென்டல் இராணுவத்திற்கு தலைமை தாங்கினார்.",
+  "question4_hint2": "அவர் பெயரில் ஒரு மாநிலம் உள்ளது.",
+  "question4_solution": "ஜார்ஜ் வாஷிங்டன் அமெரிக்காவின் முதல் ஜனாதிபதி ஆவார்.",
+  "question5_text": "1994 இல் சிறந்த திரைப்படத்திற்கான ஆஸ்கார் விருதை வென்ற திரைப்படம் எது?",
+  "question5_option1": "ஃபாரஸ்ட் கம்ப்",
+  "question5_option2": "தி ஷாஷாங்க் மீட்பு",
+  "question5_option3": "பல்ப் ஃபிக்ஷன்",
+  "question5_option4": "சிங்க ராஜா",
+  "question5_difficulty": "நடுத்தரம்",
+  "question5_hint1": "வாழ்க்கை என்பது சாக்லேட் பெட்டி போன்றது.",
+  "question5_hint2": "ஓடு ஃபாரஸ்ட், ஓடு!",
+  "question5_solution": "1994 இல் ஃபாரஸ்ட் கம்ப் சிறந்த திரைப்படத்திற்கான ஆஸ்கார் விருதை வென்றது.",
+  "question6_text": "உலகின் மிகப்பெரிய பாலைவனம் எது?",
+  "question6_option1": "சஹாரா",
+  "question6_option2": "ஆர்க்டிக்",
+  "question6_option3": "அண்டார்டிக்",
+  "question6_option4": "கோபி",
+  "question6_difficulty": "கடினமான",
+  "question6_hint1": "இது மிகவும் குளிரான பாலைவனம்.",
+  "question6_hint2": "பென்குயின்ஸ் அங்கு வாழ்கின்றன.",
+  "question6_solution": "அண்டார்டிக் உலகின் மிகப்பெரிய பாலைவனம்.",
+  "question7_text": "டென்னிஸில், பூஜ்ஜிய மதிப்பெண்ணுக்கான சொல் என்ன?",
+  "question7_option1": "காதல்",
+  "question7_option2": "டியூஸ்",
+  "question7_option3": "ஏஸ்",
+  "question7_option4": "தவறு",
+  "question7_difficulty": "எளிதான",
+  "question7_hint1": "இது பாசம் என்று பொருள்படும் ஒரு சொல்.",
+  "question7_hint2": "0-0",
+  "question7_solution": "டென்னிஸில், பூஜ்ஜிய மதிப்பெண்ணுக்கான சொல் காதல்.",
+  "question8_text": "எந்த கிளாசிக்கல் இசையமைப்பாளர் வாழ்க்கையில் பின்னர் காது கேளாதவராக ஆனார்?",
+  "question8_option1": "மொஸார்ட்",
+  "question8_option2": "பாக்",
+  "question8_option3": "பீத்தோவன்",
+  "question8_option4": "விவால்டி",
+  "question8_difficulty": "நடுத்தரம்",
+  "question8_hint1": "அவர் 5வது சிம்பொனியை இசையமைத்தார்.",
+  "question8_hint2": "அவர் ஜெர்மானியர்.",
+  "question8_solution": "பீத்தோவன் வாழ்க்கையில் பின்னர் காது கேளாதவராக ஆனார்.",
+  "question9_text": "இரண்டாம் உலகப் போர் எந்த ஆண்டு முடிந்தது?",
+  "question9_option1": "1942",
+  "question9_option2": "1945",
+  "question9_option3": "1948",
+  "question9_option4": "1950",
+  "question9_difficulty": "நடுத்தரம்",
+  "question9_hint1": "அணுகுண்டுக்கு பிறகு",
+  "question9_hint2": "ரூஸ்வெல்ட்டின் கடைசி ஆண்டு",
+  "question9_solution": "இரண்டாம் உலகப் போர் 1945 இல் முடிந்தது.",
+  "question10_text": "\"டைட்டானிக்\" திரைப்படத்தில் ஜாக் டாசனாக நடித்தவர் யார்?",
+  "question10_option1": "பிராட் பிட்",
+  "question10_option2": "லியோனார்டோ டிகாப்ரியோ",
+  "question10_option3": "ஜானி டெப்",
+  "question10_option4": "மாட் டாமன்",
+  "question10_difficulty": "எளிதான",
+  "question10_hint1": "அவர் \"தி வுல்ஃப் ஆஃப் வால் ஸ்ட்ரீட்\"டிலும் நடித்தார்.",
+  "question10_hint2": "அவர் \"தி ரெவனன்ட்\" திரைப்படத்திற்காக ஆஸ்கார் வென்றார்.",
+  "question10_solution": "\"டைட்டானிக்\" திரைப்படத்தில் ஜாக் டாசனாக லியோனார்டோ டிகாப்ரியோ நடித்தார்.",
+  "question11_text": "ஆஸ்திரேலியாவின் தலைநகரம் எது?",
+  "question11_option1": "சிட்னி",
+  "question11_option2": "மெல்போர்ன்",
+  "question11_option3": "கான்பெர்ரா",
+  "question11_option4": "பிரிஸ்பேன்",
+  "question11_difficulty": "எளிதான",
+  "question11_hint1": "இது மிகப்பெரிய நகரம் அல்ல",
+  "question11_hint2": "இது தலைநகராக வேண்டுமென்றே கட்டப்பட்டது",
+  "question11_solution": "கான்பெர்ரா ஆஸ்திரேலியாவின் தலைநகரம் ஆகும்."
+}

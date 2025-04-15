@@ -23,23 +23,28 @@ class AnswerOptions extends StatelessWidget {
 
     return Wrap(
       spacing: 8,
-      children:
-          question.answerOptions.map((option) {
-            return ElevatedButton(
-              onPressed:
-                  remainingAttempts > 0 && resultMessage == null
-                      ? () {
-                        onAnswerSelected(option);
-                      }
-                      : null,
-              child: Text(
-                option,
-                style: themeData.textTheme.bodyMedium?.copyWith(
-                  color: themeData.colorScheme.primary,
-                ),
-              ),
-            );
-          }).toList(),
+      children: List.generate(question.answerOptionKeys.length, (index) {
+        final optionKey = question.answerOptionKeys[index];
+        final localizedOption = question.getLocalizedAnswerOption(
+          context,
+          index,
+        );
+
+        return ElevatedButton(
+          onPressed:
+              remainingAttempts > 0 && resultMessage == null
+                  ? () {
+                    onAnswerSelected(optionKey);
+                  }
+                  : null,
+          child: Text(
+            localizedOption,
+            style: themeData.textTheme.bodyMedium?.copyWith(
+              color: themeData.colorScheme.primary,
+            ),
+          ),
+        );
+      }),
     );
   }
 }

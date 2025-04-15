@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
 import 'package:flutter_basics/data/repositories/questions_repository.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart';
 import 'package:flutter_basics/presentation/screens/add_question/add_question_screen.dart';
 import 'package:flutter_basics/presentation/screens/home/home_screen.dart';
 import 'package:flutter_basics/core/theme/theme.dart';
@@ -22,6 +23,8 @@ class QuizPokerApp extends StatelessWidget {
     final materialTheme = MaterialTheme();
 
     return MaterialApp(
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       debugShowCheckedModeBanner: false,
       title: 'Quiz Poker',
       theme: materialTheme.light(),

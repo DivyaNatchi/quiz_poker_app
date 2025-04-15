@@ -1,5 +1,5 @@
-// lib/models/app_navigation.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/extensions/buildcontext/loc.dart'; // Import the extension
 
 class AppNavigationItem {
   final String label;
@@ -14,10 +14,14 @@ class AppNavigationItem {
 }
 
 class AppNavigation {
-  static List<AppNavigationItem> get items => [
-    AppNavigationItem(label: 'Home', icon: Icons.home, routeName: '/'),
+  static List<AppNavigationItem> items(BuildContext context) => [
     AppNavigationItem(
-      label: 'Add Question',
+      label: context.loc.home,
+      icon: Icons.home,
+      routeName: '/',
+    ),
+    AppNavigationItem(
+      label: context.loc.addQuestion,
       icon: Icons.add,
       routeName: '/add_question',
     ),

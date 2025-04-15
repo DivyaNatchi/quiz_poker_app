@@ -1,6 +1,7 @@
 // lib/presentation/home/widgets/hints_section.dart
 import 'package:flutter/material.dart';
 import 'animated_hint.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart'; // Import AppLocalizations
 
 class HintsSection extends StatelessWidget {
   final bool isHint1Visible;
@@ -23,11 +24,14 @@ class HintsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    final l10n =
+        AppLocalizations.of(context)!; // Get the AppLocalizations instance
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Hints:',
+          l10n.hints, // Localize
           style: themeData.textTheme.labelLarge?.copyWith(
             fontWeight: FontWeight.bold,
           ),

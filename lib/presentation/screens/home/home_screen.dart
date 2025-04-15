@@ -9,6 +9,7 @@ import 'package:flutter_basics/presentation/screens/home/widgets/question_item.d
 import 'package:flutter_basics/presentation/screens/home/question_detail_screen.dart';
 import 'package:flutter_basics/widgets/base_layout.dart';
 import 'package:flutter_basics/presentation/components/display/section_title.dart';
+import 'package:flutter_basics/extensions/buildcontext/loc.dart'; // Import the extension
 
 class QuizPokerHome extends StatefulWidget {
   final QuestionsRepository repository;
@@ -79,7 +80,9 @@ class _QuizPokerHomeState extends State<QuizPokerHome> {
               interactive: true,
               child: Column(
                 children: [
-                  SectionTitle(title: 'Welcome to Quiz Poker!'),
+                  SectionTitle(
+                    title: context.loc.welcomeMessage,
+                  ), // Use localized string
                   const SizedBox(height: 20),
                   Expanded(
                     child:

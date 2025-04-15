@@ -1,5 +1,6 @@
 // lib/presentation/home/widgets/animated_hint.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart'; // Import AppLocalizations
 
 class AnimatedHint extends StatelessWidget {
   final bool isVisible;
@@ -18,6 +19,9 @@ class AnimatedHint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    final l10n =
+        AppLocalizations.of(context)!; // Get the AppLocalizations instance
+
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
@@ -29,7 +33,7 @@ class AnimatedHint extends StatelessWidget {
             ElevatedButton(
               onPressed: onShowHint,
               child: Text(
-                'Show Hint $hintNumber',
+                l10n.showHint(hintNumber), // Localize
                 style: themeData.textTheme.labelLarge,
               ),
             ),

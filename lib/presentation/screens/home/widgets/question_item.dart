@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
 import 'package:flutter_basics/core/utils/helpers.dart';
+import 'package:flutter_basics/extensions/buildcontext/loc.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart';
 import 'package:flutter_basics/presentation/screens/home/question_detail_screen.dart';
 
 class QuestionItem extends StatelessWidget {
@@ -65,15 +67,18 @@ class QuestionItem extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).colorScheme.onPrimary,
                           ),
-
                           children: [
-                            TextSpan(text: question.category.toUpperCase()),
+                            TextSpan(
+                              text: context.getLocalizedCategory(
+                                question.category,
+                              ),
+                            ),
                             WidgetSpan(
                               child: Transform.translate(
                                 offset: const Offset(0.0, 5.0),
                                 transformHitTests: false,
                                 child: Text(
-                                  question.difficulty,
+                                  question.getLocalizedDifficulty(context),
                                   style: themeData.textTheme.bodyMedium
                                       ?.copyWith(
                                         fontWeight: FontWeight.normal,
@@ -93,11 +98,10 @@ class QuestionItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  question.questionText,
+                  question.getLocalizedQuestionText(context),
                   style: themeData.textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
-
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),

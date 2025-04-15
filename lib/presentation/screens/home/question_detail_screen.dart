@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/data/models/question.dart';
+import 'package:flutter_basics/extensions/localization_get.dart';
 import 'package:flutter_basics/presentation/screens/home/widgets/hints_section.dart';
-import 'package:flutter_basics/presentation/screens/home/widgets/answer_options.dart'; // Import AnswerOptions
-import 'package:flutter_basics/presentation/screens/home/widgets/question_header.dart'; // Import QuestionHeader
+import 'package:flutter_basics/presentation/screens/home/widgets/answer_options.dart';
+import 'package:flutter_basics/presentation/screens/home/widgets/question_header.dart';
+import 'package:flutter_basics/l10n/app_localizations.dart'; // Import AppLocalizations
 
 class QuestionDetailScreen extends StatefulWidget {
   static const routeName = '/question_detail';
@@ -49,33 +51,34 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
   }
 
   void _showHint1() {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
       _isHint1Visible = true;
-      _hint1Message = 'Hint 1: ${widget.question.hint1}';
+      _hint1Message = 'Hint 1: ${l10n.get(widget.question.hint1Key)}';
     });
   }
 
   void _showHint2() {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
       _isHint2Visible = true;
-      _hint2Message = 'Hint 2: ${widget.question.hint2}';
+      _hint2Message = 'Hint 2: ${l10n.get(widget.question.hint2Key)}';
     });
   }
 
-  void _handleAnswerSelected(String option) {
+  void _handleAnswerSelected(String optionKey) {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
-      _selectedAnswer = option;
+      _selectedAnswer = optionKey;
       _remainingAttempts--;
-      if (option == widget.question.correctAnswer) {
-        _resultMessage = 'You won!';
+      if (optionKey == widget.question.correctAnswerKey) {
+        _resultMessage = l10n.youWon;
         _animationController.forward();
       } else {
         _showBanner = true;
         if (_remainingAttempts == 0) {
           _resultMessage =
-              'Your answer is wrong.\n'
-              'Correct answer: ${widget.question.correctAnswer}\n'
-              'Explanation: ${widget.question.solution}';
+              '${l10n.yourAnswerIsWrong}\n${l10n.correctAnswer(l10n.get(widget.question.correctAnswerKey))}\n${l10n.explanation(l10n.get(widget.question.solutionKey))}';
 
           _animationController.forward();
         }
@@ -86,10 +89,11 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Question Details'),
+        title: Text(l10n.questionDetails),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Stack(
@@ -99,7 +103,7 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
               if (_showBanner)
                 MaterialBanner(
                   content: Text(
-                    'Wrong answer! Attempts left: $_remainingAttempts',
+                    l10n.wrongAnswer(_remainingAttempts),
                     style: themeData.textTheme.labelMedium,
                   ),
                   actions: [
@@ -110,7 +114,7 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
                         });
                       },
                       child: Text(
-                        'Dismiss',
+                        l10n.dismiss,
                         style: themeData.textTheme.labelMedium,
                       ),
                     ),
@@ -128,14 +132,14 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        widget.question.questionText,
+                        l10n.get(widget.question.questionTextKey),
                         style: themeData.textTheme.headlineSmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Answer Options:',
+                        l10n.answerOptions,
                         style: themeData.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -167,7 +171,7 @@ class _QuestionDetailScreenState extends State<QuestionDetailScreen>
                               style: themeData.textTheme.headlineMedium
                                   ?.copyWith(
                                     color:
-                                        _resultMessage == 'You won!'
+                                        _resultMessage == l10n.youWon
                                             ? Theme.of(
                                               context,
                                             ).colorScheme.primary
